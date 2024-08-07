@@ -1,0 +1,13 @@
+# application:
+zeebe:
+  authorization:
+    server:
+      url: https://yourDnsLabel.yourIP.nip.io:443/auth/realms/camunda-platform/protocol/openid-connect/token
+  client:
+    id: ${clientId}
+    secret: ${clientSecret}
+    broker:
+      gateway-address: yourDnsLabel.yourIP.nip.io:443
+
+    security:
+      plaintext: true
