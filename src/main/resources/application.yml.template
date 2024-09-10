@@ -1,3 +1,4 @@
+
 ####### L O C A L ######
 # spring-boot-starter-camunda-sdk: 8.5.x
 zeebe:
@@ -5,10 +6,12 @@ zeebe:
     cloud:
         clientId: zeebe
         clientSecret: zecret
+        authUrl: http://localhost:18080/auth/realms/camunda-platform/protocol/openid-connect/token
     broker:
       grpcAddress: http://localhost:26500
     security:
-      plaintext: false
+      plaintext: true
+
 
 ##### SELF_MANAGED_REMOTE (e.g. AWS) ######
 # spring-boot-starter-camunda-sdk: 8.5.x
