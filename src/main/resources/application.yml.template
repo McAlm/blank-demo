@@ -1,14 +1,28 @@
+####### L O C A L ######
 # spring-boot-starter-camunda-sdk: 8.5.x
 zeebe:
   client:
     cloud:
         clientId: zeebe
-        clientSecret: <yourZeebeSecret>
-        authUrl: https://<yourDnsLabel>.<yourIp>.nip.io/auth/realms/camunda-platform/protocol/openid-connect/token
+        clientSecret: zecret
     broker:
-      grpcAddress: https://<yourDnsLabel>.<yourIp>.nip.io:443
+      grpcAddress: http://localhost:26500
     security:
       plaintext: false
+
+##### SELF_MANAGED_REMOTE (e.g. AWS) ######
+# spring-boot-starter-camunda-sdk: 8.5.x
+#zeebe:
+#  client:
+#    cloud:
+#        clientId: zeebe
+#        clientSecret: <yourZeebeSecret>
+#        authUrl: https://<yourDnsLabel>.<yourIp>.nip.io/auth/realms/camunda-platform/protocol/openid-connect/token
+#    broker:
+#      grpcAddress: https://<yourDnsLabel>.<yourIp>.nip.io:443
+#    security:
+#      plaintext: false
+
 
       
 # spring-boot-starter-camunda-sdk:8.6.x
