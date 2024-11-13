@@ -67,4 +67,12 @@ zeebe:
 #       prefer-rest-over-grpc: false
 #       audience: zeebe-api
 
-
+# SaaS 8.6.x
+# camunda:
+#  client:
+#    mode: saas
+#    auth:
+#      client-id: <your client id>
+#      client-secret: <your client secret>
+#    cluster-id: <your cluster id>
+#    region: <your cluster region>
