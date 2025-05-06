@@ -6,10 +6,10 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.1</version>
+		<version>3.4.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ers</groupId>
+	<groupId>de.mcalm</groupId>
 	<artifactId>blank-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>blank-demo</name>
@@ -46,15 +46,8 @@
 		<dependency>
 			<groupId>io.camunda</groupId>
 			<artifactId>spring-boot-starter-camunda-sdk</artifactId>
-			<version>8.7.0-alpha5</version>
+			<version>8.7.1</version>
 		</dependency>
-
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency> -->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>

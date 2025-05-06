@@ -2,9 +2,6 @@ package com.camunda.demo.worker;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import org.springframework.stereotype.Component;
 
