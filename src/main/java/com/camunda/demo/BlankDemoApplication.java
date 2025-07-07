@@ -5,8 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import io.camunda.zeebe.client.ZeebeClient;
-import io.camunda.zeebe.spring.client.annotation.Deployment;
+import io.camunda.client.CamundaClient;
+import io.camunda.spring.client.annotation.Deployment;
 import lombok.extern.java.Log;
 
 @SpringBootApplication
@@ -15,7 +15,7 @@ import lombok.extern.java.Log;
 public class BlankDemoApplication implements CommandLineRunner {
 
 	@Autowired
-	private ZeebeClient zeebe;
+	private CamundaClient zeebe;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlankDemoApplication.class, args);

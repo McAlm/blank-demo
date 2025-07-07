@@ -3,8 +3,8 @@ package com.camunda.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import io.camunda.zeebe.client.ZeebeClient;
-import io.camunda.zeebe.client.api.response.DocumentReferenceResponse;
+import io.camunda.client.CamundaClient;
+import io.camunda.client.api.response.DocumentReferenceResponse;
 import lombok.extern.java.Log;
 
 @Component
@@ -12,7 +12,7 @@ import lombok.extern.java.Log;
 public class DocumentCreationService {
 
     @Autowired
-    private ZeebeClient camundaClient;
+    private CamundaClient camundaClient;
 
     public DocumentReferenceResponse createAndUploadDocument(String name) {
         log.info("Creating document for name: " + name);

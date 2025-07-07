@@ -77,7 +77,7 @@ zeebe:
 #      grpc-address: http://127.0.0.1:26500
 #      rest-address: http://127.0.0.1:8088
 
-# SaaS 8.6.x
+# SaaS > = 8.6.x
 # camunda:
 #  client:
 #    mode: saas
