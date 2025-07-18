@@ -23,8 +23,8 @@ public class BlankDemoApplication implements CommandLineRunner {
 
 	public void run(final String... args) {
 		log.info("start process instance...");
-		zeebe.newCreateInstanceCommand().bpmnProcessId("DoNothing").latestVersion().variable("someVar", 1).send()
-				.join();
+		// zeebe.newCreateInstanceCommand().bpmnProcessId("DoNothing").latestVersion().variable("someVar", 1).send()
+		// 		.join();
 		log.info("process instance started...");
 	}
 }

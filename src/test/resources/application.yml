@@ -1,0 +1,38 @@
+io:
+  camunda:
+    process:
+      test:
+        # Change the version of the Camunda Docker image
+        camunda-docker-image-version: 8.8.0-alpha6-rc3
+        # Change the Camunda Docker image
+        camunda-docker-image-name: camunda/camunda
+        # Set additional Camunda environment variables
+        camunda-env-vars:
+          env_1: value_1
+        # Expose additional Camunda ports
+        #camunda-exposed-ports:
+        #  - 4567
+        # Enable Connectors
+        connectors-enabled: true
+        # Change the Connectors Docker image
+        connectors-docker-image-name: camunda/connectors
+        # Change version of the Connectors Docker image
+        #connectors-docker-image-version: 8.8.0
+        # Set additional Connectors environment variables
+        connectors-env-vars:
+          env_1: value_1
+        # Set Connectors secrets
+        connectors-secrets:
+          secret_1: value_1
+
+logging:
+  level:
+    root: info
+    io:
+      camunda:
+        process:
+          test: info
+    # Hide default logging from Testcontainers
+    org:
+      testcontainers: debug
+    tc: debug
