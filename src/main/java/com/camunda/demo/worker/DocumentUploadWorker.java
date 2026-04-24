@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 
 import com.camunda.demo.service.DocumentCreationService;
 
+import io.camunda.client.annotation.JobWorker;
+import io.camunda.client.annotation.Variable;
 import io.camunda.client.api.response.DocumentReferenceResponse;
-import io.camunda.spring.client.annotation.JobWorker;
-import io.camunda.spring.client.annotation.Variable;
 import lombok.extern.java.Log;
 
 @Component
