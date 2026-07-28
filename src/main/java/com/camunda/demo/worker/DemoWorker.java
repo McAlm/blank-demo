@@ -2,6 +2,8 @@ package com.camunda.demo.worker;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,8 @@ import lombok.extern.java.Log;
 @Component
 @Log
 public class DemoWorker {
+
+    private final ExecutorService virtualThreadExecutor = Executors.newVirtualThreadPerTaskExecutor();
 
     @JobWorker(type = "simpleWorker")
     public Map<String, Object> runSimpleWorker(@Variable Integer someVar) {
@@ -44,6 +48,33 @@ public class DemoWorker {
 
     public CompletableFuture<String> calculateAsync(String myVariable) throws InterruptedException {
         CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() -> runBusinessLogic(myVariable));
+        return completableFuture;
+    }
+
+    @JobWorker(type = "asyncWorker2", maxJobsActive = 3, autoComplete = false, fetchVariables = {"someVar"})
+    public void runAsyncWorker2(ActivatedJob job, JobClient jobClient)
+            throws Exception {
+
+        log.info(Thread.currentThread().getName() + "execute demo worker with key " + job.getKey());
+
+        CompletableFuture<String> future = calculateAsyncVirtual(job.getVariable("someVar").toString());
+        future.thenApply(s -> {
+            jobClient.newCompleteCommand(job)//
+                    .variable("result", s)//
+                    .send()//
+                    .exceptionally(throwable -> {
+                        throw new RuntimeException("Could not complete job " + job, throwable);
+                    });
+            ;
+            log.info(Thread.currentThread().getName() + " completed job " + job.getKey());
+            return null;
+        });
+
+    }
+
+    public CompletableFuture<String> calculateAsyncVirtual(String myVariable) throws InterruptedException {
+        CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() -> runBusinessLogic(myVariable),
+                virtualThreadExecutor);
         return completableFuture;
     }
 
